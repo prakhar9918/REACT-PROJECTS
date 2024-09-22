@@ -4,15 +4,15 @@ import { useTodo } from '../../contexts'
 function Todoitems({ todo }) {
   const [isTodoEditable, setIsTodoEditable] = useState(false)
   const [todoMsg, setTodoMsg] = useState(todo.todo)
-  const {updateTodo, deleteTodo, toggleComplete} = useTodo()
+  const {updateTodo, deleteTodo, toggleCompleted} = useTodo()
 
   const editTodo = () => {
     updateTodo(todo.id, {...todo, todo: todoMsg})
     setIsTodoEditable(false)
   }
-  const toggleCompleted = () => {
+  const toggleComplete = () => {
     //console.log(todo.id);
-    toggleComplete(todo.id)
+    toggleCompleted(todo.id)
   }
 
   return (
@@ -25,7 +25,7 @@ function Todoitems({ todo }) {
               type="checkbox"
               className="cursor-pointer"
               checked={todo.completed}
-              onChange={toggleCompleted}
+              onChange={toggleComplete}
           />
           <input
               type="text"
